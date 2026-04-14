@@ -44,11 +44,8 @@ import java.util.*;
                     case 6 -> {// Dante
                         marcarNoDisponible(sc, vehiculos);
                     }
-                    case 7 ->{// Renato
-                    }
-                    case 5 -> listarVehiculos();
-                    case 6 -> marcarNoDisponible();
-                    case 7 -> {
+
+                    case 7 -> { // Renato
                         System.out.println("\n==== REPORTE GENERAL ====");
                         mostrarVehiculos(vehiculos);
                         System.out.println("\nTotal de vehículos registrados: " + vehiculos.size());
