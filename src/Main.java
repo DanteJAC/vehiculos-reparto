@@ -34,7 +34,23 @@ public class Main {
                     }
                     case 5 -> listarVehiculos();
                     case 6 -> marcarNoDisponible();
-                    case 7 -> {}
+                    case 7 -> {
+                        System.out.println("\n==== REPORTE GENERAL ====");
+                        mostrarVehiculos(vehiculos);
+                        System.out.println("\nTotal de vehículos registrados: " + vehiculos.size());
+                        System.out.println("Total de vehículos disponibles: " + vehiculos.stream().filter(Vehiculo::isDisponible).count()); 
+                        System.out.println("Total de vehículos no disponibles: " + vehiculos.stream().filter(v -> !v.isDisponible()).count());  
+                        //CAMION
+                        System.out.println("\n--- Camiones ---");
+                        vehiculos.stream().filter(v -> v instanceof Camion).forEach(v -> v.mostrarDetalle());
+                        //FURGON
+                        System.out.println("\n--- Furgones ---");
+                        vehiculos.stream().filter(v -> v instanceof Furgon).forEach(v -> v.mostrarDetalle());
+                        //MOTO DE REPARTO
+                        System.out.println("\n--- Motos de Reparto ---");
+                        vehiculos.stream().filter(v -> v instanceof MotoReparto).forEach(v -> v.mostrarDetalle());
+                        
+                    }
                     case 8 -> System.out.println("Saliendo del sistema...");
                     default -> System.out.println("❌ Opción no válida.");
                 }
